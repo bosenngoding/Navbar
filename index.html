@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Sidebar using bootstrap 4</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- link style css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="img/logomarkus.png" alt="">
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <div class="search">
+                    <div class="icon"></div>
+                    <div class="input">
+                        <input type="text" placeholder="Cari Disini" id="mysearch">
+                    </div>
+                    <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
+                </div>
+                <br>
+                <li>
+                    <a href="#">Beranda</a>
+                </li>
+                <li>
+                    <a href="#">Tentang Kami</a>
+                </li>
+                <li>
+                    <a href="#">Galeri</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Jenjang
+                        Pendidikan</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">SD</a>
+                        </li>
+                        <li>
+                            <a href="#">SMP</a>
+                        </li>
+                        <li>
+                            <a href="#">SMK</a>
+                        </li>
+                        <li>
+                            <a href="#">SMA</a>
+                        </li>
+                        <li>
+                            <a href="#">SKH</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#profileSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Profil</a>
+                    <ul class="collapse list-unstyled" id="profileSubmenu">
+                        <li>
+                            <a href="#">Profil 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Profil 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Profil 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Ekskul</a>
+                </li>
+                <li>
+                    <a href="#">Kontak</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content & NavBar  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <h1>Yayasan Perguruan Markus</h1>
+                        <h3> SD SMP SMA SMK SKH</h3>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Galeri</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    Jenjang Pendidikan
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    Profil
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Ekskul</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kontak</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-light d-inline-block d-lg-none ml-auto">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+        const icon = document.querySelector('.icon');
+        const search = document.querySelector('.search');
+        icon.onclick = function () {
+            search.classList.toggle('active')
+        }
+
+    </script>
+</body>
+
+</html>
