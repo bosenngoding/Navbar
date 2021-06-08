@@ -227,7 +227,7 @@ a[data-toggle="collapse"] {
     display: block;
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: -7px;
     transform: translateY(-50%);
 }
 
@@ -320,5 +320,11 @@ a.article:hover {
     #sidebar.active {
         margin-left: 0;
     }
-   
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -8px;
+        transform: translateY(-50%);
+    }   
 }
