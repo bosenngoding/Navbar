@@ -70,6 +70,8 @@ a:focus {
     color: var(--third-color);
     transition: all 0.3s;
     padding: 10px;
+    position: absolute;
+    z-index: 2;
 }
 
 #sidebar.active {
@@ -80,7 +82,6 @@ a:focus {
     display: inline-block;
     width: 150px;
     margin:20px 0 0 35px;
-
 }
 
 /* Search Box */
@@ -90,7 +91,7 @@ a:focus {
     height:30px;
     background-color: var(--third-color);
     border-radius:30px;
-    margin: 0 0 -10px 10px;
+    margin: 4px 0 -10px 10px;
     transition:0.5s;
     box-shadow:0 0 0 5px var(--main-color);
     overflow: hidden;
@@ -154,7 +155,7 @@ a:focus {
     height: 100%;
     border: none;
     outline: none;
-    font-size:18px;
+    font-size:14px;
     padding:5px 0;
   }
   .clear{
@@ -227,7 +228,7 @@ a[data-toggle="collapse"] {
     display: block;
     position: absolute;
     top: 50%;
-    right: -7px;
+    right: 20px;
     transform: translateY(-50%);
 }
 
@@ -259,7 +260,11 @@ a.article:hover {
     background: var(--main-color) !important;
     color: #fff !important;
 }
-
+#sidebarCollapse{
+    position: absolute;
+    z-index: 2;
+    right: 30px;
+}
 /* ---------------------------------------------------
     NAVBAR STYLE
 ----------------------------------------------------- */
@@ -271,21 +276,22 @@ a.article:hover {
     font-family: var(--secondary-font);
     font-weight: 600;
 }
+
 .navbar-brand h1{
     font-weight: 700;
-    font-size: 18px;
+    font-size: 14px;
 }
 .navbar-brand h3{
     font-weight: 300;
-    font-size: 16px;
+    font-size: 12px;
 }
 .navbar-brand::before{
     content: '';
     display: block;
-    background:url(img/logomarkus.png) no-repeat ;
-    background-size: 59px;
-    width: 60px;
-    height: 60px;
+    background:url(markuslogo.png) no-repeat ;
+    background-size: 40px;
+    width: 45px;
+    height: 45px;
     float: left;
     margin-right:5px;
 }
@@ -297,34 +303,28 @@ a.article:hover {
 #content {
     width: 100%;
     min-height: 100vh;
-    transition: all 0.3s;
+    transition: all 0.3s;7
 }
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media (min-width: 500px){
-    #sidebar{
-        display: none;
-    }
+/* Desktop */
+@media (min-width: 992px) {
+
 }
 
-@media (max-width: 312px){
-    
-}
-
+/* Mobie */
 @media (min-width: 576px) {
     #sidebar {
         margin-left: -250px;
+        display: none;
     }
     #sidebar.active {
         margin-left: 0;
     }
     .dropdown-toggle::after {
-        display: block;
-        position: absolute;
-        top: 50%;
         right: -8px;
-        transform: translateY(-50%);
-    }   
+    }
 }
+
