@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Sidebar using bootstrap 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- link style css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- CSS -->
     <style>
         @import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100;1,600;1,700&family=Quicksand:wght@300;400;500;600;700";
 
@@ -26,304 +25,24 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: #fafafa;
+            background-image: url(img/Android\ -\ 2.svg);
+            background-size: cover;
             height: 5000px;
         }
 
-        p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em;
-            font-weight: 700;
-            line-height: 1.7em;
-            color: #999;
-        }
-
-        a,
-        a:hover,
-        a:focus {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .navbar {
-            padding: 15px 10px;
-            background: #fff;
-            border: none;
-            border-radius: 0;
-            margin-bottom: 40px;
-            box-shadow: 1px 1px 3px var(--main-color);
-        }
-
-        .navbar-btn {
-            box-shadow: none;
-            outline: none !important;
-            border: none;
-        }
-
-        .line {
-            width: 100%;
-            height: 1px;
-            border-bottom: 1px dashed #ddd;
-            margin: 40px 0;
-        }
-
-        /* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-
-
-        .wrapper {
-            display: flex;
-            width: 100%;
-            align-items: stretch;
-        }
-
-        #sidebar {
-            min-width: 250px;
-            max-width: 250px;
-            background: var(--main-color);
-            color: var(--third-color);
-            transition: all 0.3s;
-            padding: 10px;
-            position: absolute;
-            z-index: 999;
-        }
-
-        #sidebar.active {
-            margin-left: -250px;
-        }
-
-        #sidebar .sidebar-header img {
-            display: inline-block;
-            width: 150px;
-            margin: 75px 0 -50px 35px;
-        }
-
-        /* Search Box */
-        .search {
-            position: relative;
-            width: 30px;
-            height: 30px;
-            background-color: var(--third-color);
-            border-radius: 30px;
-            margin: 2px 0 -18px 10px;
-            transition: 0.5s;
-            box-shadow: 0 0 0 5px var(--main-color);
-            overflow: hidden;
-        }
-
-        .search .icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 30px;
-            height: 30px;
-            background: var(--third-color);
-            border-radius: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            cursor: pointer;
-        }
-
-        .search.active {
-            width: 220px;
-
-        }
-
-        .search .icon::before {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border: 1.5px solid var(--fourth-color);
-            border-radius: 50%;
-            transform: translate(-2px, -2px);
-        }
-
-        .search .icon::after {
-            content: '';
-            position: absolute;
-            width: 1.5px;
-            height: 6px;
-            background: var(--fourth-color);
-            transform: translate(4px, 4px) rotate(315deg);
-        }
-
-        .search .input {
-            position: relative;
-            width: 200px;
-            height: 60px;
-            left: 30px;
-            bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search .input input {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            outline: none;
-            font-size: 14px;
-            padding: 5px 0;
-        }
-
-        .clear {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
-            right: 15px;
-            background: ;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .clear::before {
-            position: absolute;
-            content: '';
-            width: 1px;
-            height: 15px;
-            background: grey;
-            transform: rotate(45deg);
-        }
-
-        .clear::after {
-            position: absolute;
-            content: '';
-            width: 1px;
-            height: 15px;
-            background: grey;
-            transform: rotate(315deg);
-        }
-
-        /* Akhir Search Box */
-
-
-        #sidebar ul.components {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--main-color);
-            margin-top: 35px;
-        }
-
-        #sidebar ul p {
-            color: #fff;
-            padding: 10px;
-        }
-
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-        }
-
-        #sidebar ul li a:hover {
-            color: var(--main-color);
-            background: #fff;
-            border-radius: 50px;
-        }
-
-        #sidebar ul li.active>a,
-        a[aria-expanded="true"] {
-            color: #fff;
-            background: var(--main-color);
-        }
-
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
-
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        ,
-
-        ul ul a {
-            font-size: 0.9em !important;
-            padding-left: 30px !important;
-            background: var(--main-color);
-        }
-
-        ul.CTAs {
-            padding: 20px;
-        }
-
-        ul.CTAs a {
-            text-align: center;
-            font-size: 0.9em !important;
-            display: block;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-
-        a.download {
-            background: #fff;
-            color: var(--main-color);
-        }
-
-        a.article,
-        a.article:hover {
-            background: var(--main-color) !important;
-            color: #fff !important;
-        }
-
-        #sidebarCollapse {
-            position: absolute;
-            z-index: 4;
-            right: 30px;
-        }
-
-        /* ---------------------------------------------------
-    NAVBAR STYLE
------------------------------------------------------ */
+        /* Header & Navbar */
         .navbar {
             background-color: var(--main-color);
         }
 
-        .nav-item {
-            margin-right: 10px;
-            font-family: var(--secondary-font);
+        .navbar-brand {
+            font-family: var(--main-font);
             font-weight: 600;
         }
 
-        .nav-link:hover {
-            border-bottom: 3px solid var(--secondary-color);
-        }
-
-        .navbar-brand h1 {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .navbar-brand h3 {
-            font-weight: 300;
-            font-size: 12px;
-        }
-
-        .navbar-brand::before {
-            content: '';
-            display: block;
-            background: url(http://markustangerang.sch.id/portal/assets/img/clients/ypmtok.png) no-repeat;
-            background-size: 40px;
-            width: 45px;
-            height: 45px;
-            float: left;
-            margin-right: 5px;
+        .navbar-nav {
+            font-family: var(--secondary-font);
+            font-weight: 500;
         }
 
         .dropdown-menu {
@@ -334,49 +53,84 @@
             color: var(--third-color);
         }
 
-        /* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+        /* Utilities */
 
-        #content {
-            width: 100%;
-            min-height: 100vh;
-            transition: all 0.3s;
-            7
-        }
-
-        /* Style Slider */
-        .carousel-inner {
-            margin-top: -539px;
-        }
-
-        .carousel-item {
-            height: 87vh;
-        }
-
-        .carousel-indicators {
-            z-index: 1;
-        }
-
-        .carousel-caption {
-            width: 900px;
-            height: 400px;
+        /* Slider & Stuff */
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 150px;
             border-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.6);
-            background-size: cover;
+        }
+
+        .jumbotron .display-4 {
             color: var(--main-color);
             font-family: var(--main-font);
-            margin-bottom: 50px;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .jumbotron h3 {
+            color: var(--main-color);
+            font-family: var(--main-font);
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .jumbotron h4 {
+            color: var(--main-color);
+            font-family: var(--main-font);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .jumbotron .tombol {
+            background-color: transparent;
+            border: 3px solid var(--main-color);
+            border-radius: 20px;
+            color: var(--main-color);
+            font-family: var(--secondary-font);
+            font-weight: bold;
+            height: 34px;
+            line-height: 100%;
+        }
+
+        .jumbotron .tombol:hover {
+            background-color: var(--main-color);
+            color: var(--third-color);
+            transition: 0.4s;
+        }
+
+        .carousel-item img {
+            height: 625px;
+
+        }
+
+
+        /* .carousel-caption {
+            width: 60%;
+            height: 35%;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.6);
+            background-size: 200px;
+            color: var(--main-color);
+            font-family: var(--main-font);
             margin-left: 30px;
+            margin-bottom: 190px;
         }
 
         .carousel-caption .poin {
+            font-size: 18px;
             font-weight: 600;
-            margin-top: 60px;
         }
 
         .carousel-caption h1 {
+            font-size: 24px;
             font-weight: 800;
+        }
+
+        .carousel-caption .paragraf {
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .btn1 {
@@ -385,7 +139,7 @@
             color: var(--main-color);
             border: 3px solid var(--main-color);
             background-color: transparent;
-            margin-top: 30px;
+            margin-top: 15px;
             border-radius: 15px;
             cursor: pointer;
             padding: 4px;
@@ -395,88 +149,161 @@
             background-color: var(--main-color);
             color: var(--third-color);
             transition: 1s;
-        }
+        } */
 
-        /* Style Tentang Kami */
-        .container {
-            width: 100%;
-            height: 610px;
-            margin: 60px auto;
-        }
-
-        .judul {
-            font-family: var(--main-font);
-            font-weight: 600;
-            font-size: 30px;
-            text-align: center;
-            text-decoration: var(--secondary-color);
-        }
-
+        /* Tentang Kami */
         .tentang-kami {
-            width: 1067px;
-            height: 419px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 80%;
+            margin: 0 -5px 0 2px;
         }
 
-        .side-text {
-            width: 480px;
-
+        .judul h1 {
+            font-family: var(--main-font);
+            color: var(--main-color);
+            font-size: 24px;
+            font-weight: bold;
+            margin: 50px auto;
+            text-align: center;
+            border-bottom: 2px solid var(--secondary-color);
+            width: 50%;
         }
 
-        .side-text p {
+        iframe.video {
+            width: 85vw;
+            /* margin: auto; */
+        }
+
+        .sambutan {
+            width: 85vw;
+        }
+
+        .sambutan h3 {
+            color: var(--main-color);
             font-family: var(--secondary-font);
-            font-weight: 500;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
+        .sambutan p {
+            font-family: var(--secondary-font);
+            color: var(--main-color);
+            font-weight: 300;
+        }
+
+        .sambutan a {
+            font-family: var(--secondary-font);
+            font-weight: 800;
+        }
+
+        /* Footer */
 
 
-        /* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-        /* Desktop */
-        @media (min-width: 992px) {}
+        /* Responsive Breakpoints (Desktop Version) */
 
-        /* Mobile */
-        @media (max-width:900px) {
-            .nav-item {
-                margin-right: 30px;
+        @media (min-width: 992px) {
+            body {
+                background-image: url(img/bg.svg);
+                height: 5000px;
             }
 
-            .carousel-inner {
-                margin-top: -512px;
+            /* Navbar */
+            .nav-item {
+                margin-right: 15px;
+            }
+
+            .nav-item:hover::after {
+                content: '';
+                display: block;
+                border-bottom: 3px solid var(--secondary-color);
+                width: 50%;
+                margin: auto;
+                padding-bottom: -7px;
+                margin-bottom: -3px;
+            }
+
+            /* Slider */
+
+            .jumbotron {
+                margin-bottom: 100px;
+            }
+
+            .jumbotron .display-4 {
+                color: var(--main-color);
+                font-family: var(--main-font);
+                font-weight: bold;
+                font-size: 40px;
+            }
+
+            .jumbotron h3 {
+                color: var(--main-color);
+                font-family: var(--main-font);
+                font-weight: 600;
+                font-size: 32px;
+            }
+
+            .jumbotron h4 {
+                color: var(--main-color);
+                font-family: var(--main-font);
+                font-weight: 600;
+                font-size: 28px;
+            }
+
+            .jumbotron .tombol {
+                background-color: transparent;
+                border: 3px solid var(--main-color);
+                border-radius: 20px;
+                color: var(--main-color);
+                font-family: var(--secondary-font);
+                font-weight: bold;
+            }
+
+            .jumbotron .tombol:hover {
+                background-color: var(--main-color);
+                color: var(--third-color);
+                transition: 0.4s;
             }
 
             .carousel-item img {
-                height: 85vh;
+                height: 650px;
+
             }
 
-            .carousel-indicators {
-                z-index: 1;
+            /* .carousel-item img {
+                height: 625px;
             }
 
             .carousel-caption {
-                width: 70%;
-                height: 400px;
+                width: 73%;
+                height: 60%;
                 border-radius: 50px;
                 background-color: rgba(255, 255, 255, 0.6);
                 background-size: cover;
                 color: var(--main-color);
                 font-family: var(--main-font);
-                margin-bottom: 30px;
-                margin-left: 5px;
+                margin: 0 0 80px 20px;
             }
 
             .carousel-caption .poin {
-                font-size: 18px;
                 font-weight: 600;
-                margin-top: 50px;
+                margin-top: 60px;
+                font-size: 32px;
             }
 
             .carousel-caption h1 {
-                font-size: 30px;
                 font-weight: 800;
+                font-size: 42px;
+            }
+
+            .carousel-caption .paragraf {
+                font-size: 24px;
+                font-weight: 500;
+            }
+
+            .carousel-caption .paragraf {
+                font-size: 32px;
+                font-weight: 600;
             }
 
             .btn1 {
@@ -488,291 +315,222 @@
                 margin-top: 30px;
                 border-radius: 15px;
                 cursor: pointer;
+                padding: 4px;
             }
 
             .btn1:hover {
                 background-color: var(--main-color);
                 color: var(--third-color);
-                transition: 1s;
-            }
+                transition: 0.5s;
+            } */
 
+            /* Tentang Kami */
             .tentang-kami {
                 width: 100%;
-                height: 700px;
-                display: block;
             }
 
-            .tentang-kami iframe {
-                width: 400px;
-                height: 220px;
-                margin: 30px -20px 20px 30px;
+            .judul h1 {
+                font-family: var(--main-font);
+                font-size: 32px;
+                font-weight: bold;
+                margin: 70px auto;
+                text-align: center;
+                border-bottom: 2px solid var(--secondary-color);
+                width: 23%;
             }
 
-            .side-text {
-                width: 400px;
-                margin: 0 -20px 0 30px;
-            }
-        }
-
-
-        /* Mobie */
-        @media (min-width: 576px) {
-            #sidebar {
-                margin-left: -250px;
-
+            iframe.video {
+                width: 100%;
+                height: 300px;
             }
 
-            #sidebar.active {
-                margin-left: 0;
+            .sambutan {
+                width: 100%;
             }
 
-            .dropdown-toggle::after {
-                right: -8px;
-            }
-
-            #sidebarCollapse {
-                display: none;
+            .sambutan p {
+                text-align: center;
+                font-family: var(--secondary-font);
+                font-size: 20px;
             }
 
         }
-
-        /* Tablet */
     </style>
-    <!-- Link Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link AOS (ANIMATE ON SCROLL) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="wrapper sticky-top">
-
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header ">
-                <img src="http://markustangerang.sch.id/portal/assets/img/clients/ypmtok.png" alt="">
-            </div>
-
-            <ul class="list-unstyled components">
-
-                <div class="search">
-                    <div class="icon"></div>
-                    <div class="input">
-                        <input type="text" placeholder="Cari Disini" id="mysearch">
-                    </div>
-                    <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
-                </div>
-                <br>
-                <li>
-                    <a href="#">Beranda</a>
-                </li>
-                <li>
-                    <a href="#">Tentang Kami</a>
-                </li>
-                <li>
-                    <a href="#">Galeri</a>
-                </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Jenjang
-                        Pendidikan</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">SD</a>
-                        </li>
-                        <li>
-                            <a href="#">SMP</a>
-                        </li>
-                        <li>
-                            <a href="#">SMK</a>
-                        </li>
-                        <li>
-                            <a href="#">SMA</a>
-                        </li>
-                        <li>
-                            <a href="#">SKH</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="#profileSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Profil</a>
-                    <ul class="collapse list-unstyled" id="profileSubmenu">
-                        <li>
-                            <a href="#">Profil 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Profil 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Profil 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Ekskul</a>
-                </li>
-                <li>
-                    <a href="#">Kontak</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- Page Content & NavBar  -->
-    <div id="content">
+    <!-- Header & Navbar -->
+    <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <h1>Yayasan Perguruan Markus</h1>
-                    <h3> SD SMP SMA SMK SKH</h3>
-                </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Galeri</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-toggle="dropdown" aria-expanded="false">
-                                Jenjang Pendidikan
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">SD</a></li>
-                                <li><a class="dropdown-item" href="#">SMP</a></li>
-                                <li><a class="dropdown-item" href="#">SMA</a></li>
-                                <li><a class="dropdown-item" href="#">SMK</a></li>
-                                <li><a class="dropdown-item" href="#">SKH</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-toggle="dropdown" aria-expanded="false">
-                                Profil
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Profil 1</a></li>
-                                <li><a class="dropdown-item" href="#">Profil 2</a></li>
-                                <li><a class="dropdown-item" href="#">Profil 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ekskul</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kontak</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button type="button" id="sidebarCollapse" class="btn btn-light d-inline-block d-lg-none ml-auto">
-                    <i class="fas fa-align-left"></i>
-                </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://markustangerang.sch.id/portal/assets/img/clients/ypmtok.png" width="50" height="50"
+                    alt=""> Sekolah Markus
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Beranda<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Galeri</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pendidikan
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Sekolah Dasar</a>
+                            <a class="dropdown-item" href="#">Sekolah Menengah Pertama</a>
+                            <a class="dropdown-item" href="#">Sekolah Menengah Akhir</a>
+                            <a class="dropdown-item" href="#">Sekolah Menengah Kejuruan</a>
+                            <a class="dropdown-item" href="#">SKH</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Profil 1</a>
+                            <a class="dropdown-item" href="#">Profil 2</a>
+                            <a class="dropdown-item" href="#">Profil 2</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ekskul</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </div>
-
-    <!-- Slider -->
+    </header>
 
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="http://markustangerang.sch.id/portal/assets/img/portfolio/galeri%20(2).jpg"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-md-block">
-                    <h2 class="poin">Selamat Datang di</h2>
-                    <h1>Yayasan Perguruan Markus Tangerang</h1>
-                    <h2>SD SMP SMA SMK SKH</h2>
-                    <button type="button" class="btn1">Daftar Sekarang</button>
+
+    <!-- Slider and Stuff -->
+    <main>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="http://markustangerang.sch.id/portal/assets/img/portfolio/galeri%20(2).jpg"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <div class="jumbotron">
+                            <h3>Selamat Datang di</h3>
+                            <h1 class="display-4">Yayasan Perguruan Markus Tangerang</h1>
+                            <h4>SD SMP SMA SMK SKH</h4>
+                            <a class="btn tombol" href="#" role="button">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="http://markustangerang.sch.id/portal/assets/img/portfolio/galeri%20(2).jpg"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <div class="jumbotron">
+                            <h3>Selamat Datang di</h3>
+                            <h1 class="display-4">Yayasan Perguruan Markus Tangerang</h1>
+                            <h4>SD SMP SMA SMK SKH</h4>
+                            <a class="btn tombol" href="#" role="button">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="http://markustangerang.sch.id/portal/assets/img/portfolio/galeri%20(2).jpg"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <div class="jumbotron">
+                            <h3>Selamat Datang di</h3>
+                            <h1 class="display-4">Yayasan Perguruan Markus Tangerang</h1>
+                            <h4>SD SMP SMA SMK SKH</h4>
+                            <a class="btn tombol" href="#" role="button">Daftar Sekarang</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="img/galeri (2).jpg" class="d-block w-100" alt="...">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Tentang kami -->
+        <div class="container-lg">
+            <div class="judul" data-aos="fade-down" data-aos-offset="250" data-aos-duration="1200">
+                <h1>Tentang Kami</h1>
             </div>
-            <div class="carousel-item">
-                <img src="img/galeri (2).jpg" class="d-block w-100" alt="...">
+            <div class="row tentang-kami">
+                <div class="col" data-aos="fade-right" data-aos-offset="300" data-aos-duration="2000">
+                    <iframe width="450" height="300" src="https://www.youtube.com/embed/fIwWUT_zDk4"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen class="video"></iframe>
+                </div>
+                <div class="col" data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500">
+                    <div class="sambutan">
+                        <h3>Sambutan Kepala Sekolah</h3>
+                        <p>Yayasan Perguruan Markus Tangerang yang terletak Kota Tangerang berdiri pada tahun 1989.
+                            Sekolah yang didirikan oleh Ibu Bertahuli Sitompul (alm) merupakan yayasan yang bergerak
+                            dibidang pelayanan pendidikan melalui Sekolah Markus Tangerang yang menerapkan kurikulum
+                            nasional berdasrakan pancasila dan UUD 1945.
+                        </p>
+                        <a href="">Baca Selengkapnya...</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- Akhir Slider -->
-    <!-- Tentang Kami -->
-    <div class="container">
-        <h1 class="judul">Tentang Kami</h1>
-        <div class="tentang-kami">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fIwWUT_zDk4"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <div class="side-text">
-                <h2>Sambutan Kepala Sekolah</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore illo qui commodi cupiditate ad?
-                    Dignissimos blanditiis atque nisi, iusto alam, dignissimos sequi. Sequi labore, repudiandae
-                    mollitia, assumenda eaque vel distinctio architecto nam similique, unde in quod modi odio Lorem
-                    ipsum dolor sit amet, consectetur adipisicing elit. Enim, neque.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Tentang Kami -->
+    </main>
 
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        const icon = document.querySelector('.icon');
-        const search = document.querySelector('.search');
-        icon.onclick = function () {
-            search.classList.toggle('active')
-        }
-
+        AOS.init();
     </script>
+
+
 </body>
 
 </html>
